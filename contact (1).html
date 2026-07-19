@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us — R.M. Drugs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green:#1A5C38;--green-mid:#2D7A50;--green-light:#E6F4EC;
+  --gold:#C8943A;--gold-light:#FDF5E8;
+  --text:#1a1a1a;--muted:#5f5e5a;--bg:#fff;--bg2:#f8f8f5;
+  --border:rgba(0,0,0,0.1);--r:10px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 2rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
+.nav-logo img{height:52px;width:auto;object-fit:contain;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:13.5px;color:var(--muted);font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);border-bottom-color:var(--green);}
+.nav-cta{background:var(--green);color:#fff;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:600;transition:background .2s;}
+.nav-cta:hover{background:var(--green-mid);}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;border:none;padding:12px 28px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;display:inline-block;transition:background .2s;}
+.btn-primary:hover{background:var(--green-mid);}
+.btn-outline{background:transparent;color:var(--green);border:2px solid var(--green);padding:11px 26px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;display:inline-block;transition:all .2s;}
+.btn-outline:hover{background:var(--green);color:#fff;}
+
+/* FOOTER */
+.footer{background:var(--green);color:rgba(255,255,255,0.9);padding:3rem 2rem 1.5rem;}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.footer-brand img{height:48px;margin-bottom:1rem;background:#fff;padding:6px 12px;border-radius:10px;display:inline-block;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:0.9rem;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:0.5rem;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:1rem;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.45);}
+
+/* SECTION LABELS */
+.eyebrow{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1.25;margin-bottom:0.85rem;}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.8;max-width:620px;margin-bottom:2rem;}
+.section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
+.section-full{padding:5rem 2rem;}
+
+/* CARDS */
+.card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s;}
+.card:hover{box-shadow:0 8px 32px rgba(26,92,56,0.1);transform:translateY(-2px);}
+.card-img{width:100%;height:200px;object-fit:cover;}
+.card-body{padding:1.25rem;}
+.card-body h3{font-size:15px;font-weight:600;margin-bottom:6px;}
+.card-body p{font-size:13px;color:var(--muted);line-height:1.65;}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--green-light);color:var(--green);margin-top:10px;}
+
+/* STATS */
+.stats-bar{background:var(--green);color:#fff;padding:3rem 2rem;}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#fff;}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .footer-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .section-title{font-size:1.6rem;}
+}
+</style>
+
+<style>
+.page-hero{position:relative;height:340px;overflow:hidden;display:flex;align-items:flex-end;}
+.page-hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80') center/cover no-repeat;}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,40,24,0.9) 0%,rgba(10,40,24,0.3) 70%);}
+.page-hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:2.5rem 2rem;width:100%;}
+.page-hero-content h1{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.page-hero-content p{font-size:1rem;color:rgba(255,255,255,0.75);max-width:500px;}
+.breadcrumb{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;}
+.breadcrumb a{color:rgba(255,255,255,0.6);}
+.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start;}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:0.75rem;}
+.contact-info p{font-size:0.95rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;}
+.contact-detail{display:flex;gap:14px;align-items:flex-start;margin-bottom:1.25rem;}
+.contact-detail-icon{width:42px;height:42px;border-radius:10px;background:var(--green-light);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:19px;flex-shrink:0;}
+.contact-detail-text h4{font-size:13px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
+.contact-detail-text p{font-size:14px;color:var(--muted);line-height:1.5;}
+.markets-list{margin-top:1.5rem;padding:1.25rem;background:var(--bg2);border-radius:var(--r);border:1px solid var(--border);}
+.markets-list h4{font-size:12px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;}
+.markets-list-items{display:flex;flex-wrap:wrap;gap:8px;}
+.mkt{display:inline-flex;align-items:center;gap:6px;background:var(--green-light);color:var(--green);border-radius:16px;font-size:12.5px;font-weight:500;padding:5px 12px;}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:2.25rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);}
+.form-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.4rem;}
+.form-card p{font-size:13px;color:var(--muted);margin-bottom:1.5rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{margin-bottom:1.1rem;}
+.form-group label{display:block;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:7px;font-size:13.5px;font-family:inherit;color:var(--text);transition:border-color .2s;outline:none;background:#fff;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,92,56,0.08);}
+.form-group textarea{height:110px;resize:vertical;}
+.submit-btn{width:100%;background:var(--green);color:#fff;border:none;padding:13px;border-radius:7px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s;}
+.submit-btn:hover{background:var(--green-mid);}
+.map-section{background:var(--bg2);padding:4rem 2rem;}
+.map-inner{max-width:1100px;margin:0 auto;}
+.map-embed{border-radius:var(--r);overflow:hidden;height:350px;border:1px solid var(--border);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);}
+@media(max-width:768px){.contact-layout,.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="R.M. Drugs"/></a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="products.html">Products</a><a href="blog.html">Blog</a><a href="contact.html" class="active">Contact Us</a></div>
+  <a class="nav-cta" href="contact.html">Enquire Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Contact Us</div>
+    <h1>Get in Touch</h1>
+    <p>Whether you're a wholesale importer, distributor, or hospital procurement manager — let's talk.</p>
+  </div>
+</div>
+
+<div style="padding:5rem 2rem;background:#fff;">
+<div style="max-width:1100px;margin:0 auto;">
+  <div class="contact-layout">
+
+    <!-- LEFT: INFO -->
+    <div class="contact-info">
+      <span class="eyebrow">Contact Details</span>
+      <h3>Talk to our export team</h3>
+      <p>We'd like to understand your requirements and explore a supply partnership that works for your market.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="contact-detail-text">
+          <h4>Address</h4>
+          <p>7A/112 Manas Nagar, Shah Ganj<br/>Agra — 282010, Uttar Pradesh, India</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-mail"></i></div>
+        <div class="contact-detail-text">
+          <h4>Email</h4>
+          <p>exports@rmdrugs.com</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-phone"></i></div>
+        <div class="contact-detail-text">
+          <h4>Phone</h4>
+          <p>+91 XXXXX XXXXX</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon"><i class="ti ti-clock"></i></div>
+        <div class="contact-detail-text">
+          <h4>Business Hours</h4>
+          <p>Monday – Saturday: 9:30 AM – 6:30 PM IST</p>
+        </div>
+      </div>
+
+      <div class="markets-list">
+        <h4>Markets We Serve</h4>
+        <div class="markets-list-items">
+          <span class="mkt">🇮🇳 India</span>
+          <span class="mkt">🇴🇲 Oman</span>
+          <span class="mkt">🇰🇪 Kenya</span>
+          <span class="mkt">🇹🇿 Tanzania</span>
+          <span class="mkt">🇦🇪 UAE</span>
+          <span class="mkt">🇸🇦 Saudi Arabia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="form-card">
+      <h3>Send an Enquiry</h3>
+      <p>Fill in the form and our export team will respond within 1 business day.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Full name"/></div>
+        <div class="form-group"><label>Company Name *</label><input type="text" placeholder="Your organisation"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Country / Market *</label>
+          <select>
+            <option value="">Select country...</option>
+            <option>Oman</option><option>Kenya</option><option>Tanzania</option>
+            <option>UAE</option><option>Saudi Arabia</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Your Role</label>
+          <select>
+            <option value="">Select role...</option>
+            <option>Wholesale Importer</option><option>Distributor</option>
+            <option>Hospital Procurement</option><option>Pharmacy Chain</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Email Address *</label><input type="email" placeholder="your@email.com"/></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+country code..."/></div>
+      <div class="form-group"><label>Your Requirements</label><textarea placeholder="Tell us about the products you need, estimated volumes, and any regulatory or packaging requirements..."></textarea></div>
+      <button class="submit-btn" type="button">Send Enquiry →</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- OFFICE IMAGE STRIP -->
+<div class="map-section">
+  <div class="map-inner">
+    <span class="eyebrow">Our Office</span>
+    <h2 class="section-title">Based in Agra, India</h2>
+    <p class="section-sub">Our headquarters in Agra, Uttar Pradesh serves as the hub for our domestic operations and international export activities.</p>
+    <div style="border-radius:var(--r);overflow:hidden;height:380px;">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80" alt="Office" style="width:100%;height:100%;object-fit:cover;"/>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="R.M. Drugs"/>
+      <p>A 45-year-old pharmaceutical company based in Agra, India — supplying quality generic medicines across Africa and the Gulf.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Generic Medicines</a>
+      <a href="products.html">Nutraceuticals</a>
+      <a href="products.html">Syrups & Liquids</a>
+      <a href="products.html">Medical Instruments</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:exports@rmdrugs.com">exports@rmdrugs.com</a>
+      <a href="#">+91 XXXXX XXXXX</a>
+      <a href="#">7A/112 Manas Nagar,<br>Shah Ganj, Agra — 282010</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 R.M. Drugs, Agra, India. All rights reserved.</span>
+    <span>IEC Registered · WHO-GMP Certified · Pharmexcil RCMC Member</span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog — R.M. Drugs | Health &amp; Wellness Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green:#14532D;--green-mid:#166534;--green-light:#DCFCE7;--green-soft:#F0FDF4;
+  --mint:#34D399;--gold:#B45309;--gold-light:#FEF3C7;
+  --text:#111827;--muted:#6B7280;--bg:#FFFFFF;--bg2:#F9FAFB;--bg3:#F3F4F6;
+  --border:#E5E7EB;--shadow:0 18px 50px rgba(20,83,45,0.08);--r:16px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.92);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.nav-logo img{height:48px;width:auto;object-fit:contain;}
+.nav-links{display:flex;gap:1.75rem;}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:600;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{background:var(--green);color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:700;transition:transform .2s,background .2s;}
+.nav-cta:hover{background:var(--green-mid);transform:translateY(-1px);}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;border:none;padding:13px 28px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 10px 24px rgba(20,83,45,0.18);}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px);}
+
+/* PAGE HERO */
+.page-hero{padding:3.5rem 0 2.5rem;background:
+  radial-gradient(circle at 85% 15%, rgba(52,211,153,0.18), transparent 28%),
+  radial-gradient(circle at 10% 80%, rgba(20,83,45,0.08), transparent 32%),
+  linear-gradient(180deg,#fff 0%,#f7faf8 100%);text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--mint);border-radius:2px;}
+.page-hero h1{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;margin-bottom:.75rem;}
+.page-hero p{color:var(--muted);max-width:36rem;margin:0 auto;}
+
+/* LISTING */
+.section{padding:3.5rem 0;}
+.blog-list-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1rem;}
+.blog-list-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:1.5rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.blog-list-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(20,83,45,.15);}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--green-light);color:var(--green);margin-bottom:.85rem;align-self:flex-start;}
+.blog-list-card h3{font-size:1.05rem;line-height:1.4;margin-bottom:.6rem;}
+.blog-list-card p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1rem;flex:1;}
+.read-link{font-size:13px;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:4px;}
+
+/* ARTICLES */
+.articles-wrap{background:var(--bg2);padding:1px 0 3.5rem;}
+.blog-post{background:#fff;border:1px solid var(--border);border-radius:24px;padding:2.25rem 2.5rem;max-width:760px;margin:2.5rem auto 0;scroll-margin-top:90px;}
+.blog-post .tag{margin-bottom:1rem;}
+.blog-post h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.9rem;line-height:1.2;margin-bottom:1.25rem;}
+.blog-post h3{font-size:1.15rem;margin:1.5rem 0 .6rem;color:var(--green);}
+.blog-post p{font-size:15px;color:#374151;line-height:1.85;margin-bottom:1rem;}
+.blog-post p a{color:var(--green);font-weight:700;text-decoration:underline;}
+.back-to-top{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green);margin-top:1rem;}
+
+/* FOOTER */
+.footer{background:var(--green);color:rgba(255,255,255,0.9);padding:3rem 1.5rem 1.5rem;}
+.footer-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.footer-brand img{height:48px;margin-bottom:1rem;background:#fff;padding:6px 12px;border-radius:10px;display:inline-block;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:0.9rem;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:0.5rem;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:1rem;max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,0.45);}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:960px){
+  .blog-list-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .blog-list-grid{grid-template-columns:1fr;}
+  .blog-post{padding:1.75rem 1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="R.M. Drugs"/></a>
+  <div class="nav-links"><a href="index.html" >Home</a><a href="about.html">About Us</a><a href="products.html">Products</a><a href="blog.html" class="active">Blog</a><a href="contact.html">Contact Us</a></div>
+  <a class="nav-cta" href="contact.html">Enquire Now</a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">R.M. Drugs Blog</span>
+    <h1>Health &amp; Wellness Insights</h1>
+    <p>Practical, research-backed guidance on nutrition, family health, and healthy living — from the R.M. Drugs team.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-list-grid">
+      <a href="#article-1" class="blog-list-card">
+        <span class="tag">Skin Health</span>
+        <h3>Why Gut Health Affects Your Skin's Sun Resilience</h3>
+        <p>A growing body of research points to a second, less visible line of defense against UV damage: the gut.</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a href="#article-2" class="blog-list-card">
+        <span class="tag">Joint &amp; Bone Health</span>
+        <h3>5 Signs Your Joints Need More Support</h3>
+        <p>Joint wear builds quietly for years. Catching the early signals can make a meaningful difference over time.</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a href="#article-3" class="blog-list-card">
+        <span class="tag">Women's Wellness</span>
+        <h3>A Woman's Guide to Hormonal Wellness: From PMS to Menopause</h3>
+        <p>Understanding what's actually happening in your body is the first step to feeling like yourself again, at every stage.</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a href="#article-4" class="blog-list-card">
+        <span class="tag">Children's Health</span>
+        <h3>Helping Kids Focus Better in School — Naturally</h3>
+        <p>Before jumping to conclusions about attention or discipline, it's worth asking: is their brain getting what it needs?</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a href="#article-5" class="blog-list-card">
+        <span class="tag">Nutrition</span>
+        <h3>Iron Supplements: Why Your Fast-Paced Life Needs Them More Than You Think</h3>
+        <p>The cost of low iron shows up in ways many people don't immediately connect back to their diet.</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a href="#article-6" class="blog-list-card">
+        <span class="tag">Liver Health</span>
+        <h3>The Organ That Never Complains (Until It's Too Late)</h3>
+        <p>The liver can be under significant strain for years without a single obvious symptom.</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a href="#article-7" class="blog-list-card">
+        <span class="tag">Skin Health</span>
+        <h3>Dull Skin Isn't Just "Tired" — It's Trying to Tell You Something</h3>
+        <p>If your skin still looks flat and tired, the problem may not be your skincare routine at all.</p>
+        <span class="read-link">Read article <i class="ti ti-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="articles-wrap">
+  <div class="container">
+<article class="blog-post" id="article-1">
+  <span class="tag">Skin Health</span>
+  <h2>Why Gut Health Affects Your Skin's Sun Resilience</h2>
+  <p>Most people think of sun protection as something you apply — a cream, a spray, a layer between skin and light. But a growing body of research points to a second, less visible line of defense: the gut.</p>
+  <h3>The Gut-Skin Connection</h3>
+  <p>Your gut and skin are both major immune and barrier organs, and they communicate constantly through what researchers call the gut-skin axis. The gut microbiome — the trillions of bacteria living in your digestive tract — influences systemic inflammation, antioxidant levels, and immune signaling throughout the body, including the skin. When gut bacteria are diverse and balanced, they help regulate the inflammatory response that UV exposure triggers. When the microbiome is disrupted, that regulation weakens, and skin tends to react more severely to the same amount of sun.</p>
+  <h3>What UV Exposure Actually Does</h3>
+  <p>Sunlight, particularly UVA and UVB rays, generates reactive oxygen species (free radicals) in skin cells. In small amounts, the body's antioxidant systems mop these up without issue. But cumulative exposure — the kind most people get simply going about daily life — can outpace the body's natural defense capacity, contributing to premature aging, pigmentation, and long-term cellular damage. Topical sunscreen blocks a portion of incoming UV rays, but it doesn't address the internal oxidative load that builds up regardless.</p>
+  <h3>Nutrients That Support Skin From Within</h3>
+  <p>Several dietary compounds have been studied for their role in supporting the skin's internal resilience to UV-related oxidative stress:</p>
+  <p>Polyphenols and carotenoids (found in foods like tomatoes, green tea, and certain ferns) act as antioxidants that help neutralize free radicals generated by sun exposure.</p>
+  <p>Omega-3 fatty acids support the skin's lipid barrier and have been linked to reduced UV-induced inflammation.</p>
+  <p>Vitamin C and E work together as part of the skin's natural antioxidant network.</p>
+  <p>Gut-supportive fiber and fermented foods help maintain the microbial diversity that underpins the gut-skin axis.</p>
+  <p>This is the science behind what's often called "oral sun protection" — not a replacement for topical SPF, but a complementary layer of support that works at the cellular level, building resilience from the inside over time rather than blocking rays on the surface.</p>
+  <h3>A Layered Approach</h3>
+  <p>Dermatologists generally agree that no single measure fully protects skin from cumulative UV exposure. Shade, protective clothing, topical SPF, and internal antioxidant support each address a different part of the problem. Thinking of sun care as a system — rather than a single product — is where the science is heading.</p>
+  <p>This is exactly the gap our oral sunscreen supplement is designed to fill. Formulated with clinically studied antioxidant and gut-supportive ingredients, it's built to work alongside your regular sun care routine, not replace it — supporting your skin's natural resilience from within, one day at a time.</p>
+  <p>Have questions about how oral sun protection fits into your routine? <a href="products.html">Explore our product- Sun Soft</a> or reach out to our team.</p>
+</article>
+<article class="blog-post" id="article-2">
+  <span class="tag">Joint &amp; Bone Health</span>
+  <h2>5 Signs Your Joints Need More Support</h2>
+  <p>Joint wear doesn't announce itself. It builds quietly, often for years, before it becomes something you can't ignore. Catching the early signals — and acting on them — can make a meaningful difference in how your joints hold up over time.</p>
+  <h3>1. Morning Stiffness That Takes a While to Ease</h3>
+  <p>A little stiffness after a long night's sleep is normal. But if your joints feel noticeably tight or stiff for 20-30 minutes or more after waking, and this becomes a regular pattern rather than an occasional one, it's often an early sign that cartilage and surrounding tissue are under stress. Cartilage has no direct blood supply, so it repairs slowly — which is why early signals matter more than they might seem to.</p>
+  <h3>2. A Grinding or Clicking Sensation</h3>
+  <p>Occasional joint pops are usually harmless — just gas bubbles releasing in the fluid around the joint. But a grinding, grating, or crunching sensation (known clinically as crepitus), especially when it's accompanied by discomfort, can indicate that cartilage is thinning and bone surfaces are moving less smoothly against each other.</p>
+  <h3>3. Swelling After Everyday Activity</h3>
+  <p>If a joint swells after routine activity — a normal walk, a flight of stairs, a day on your feet — that's your body signaling inflammation. Mild, occasional swelling isn't necessarily alarming, but a recurring pattern suggests the joint is struggling to recover between uses, which is often an early marker of wear outpacing repair.</p>
+  <h3>4. Reduced Range of Motion</h3>
+  <p>Struggling to fully bend a knee, reach overhead, or rotate a hip the way you used to is one of the more overlooked signs of joint deterioration, because it happens gradually enough to feel "normal." If you find yourself avoiding certain movements or adjusting your posture to compensate, it's worth paying attention to.</p>
+  <h3>5. Pain That Changes With the Weather or Activity Level</h3>
+  <p>Joint discomfort that flares with cold weather, humidity changes, or after periods of high activity often points to underlying inflammation or cartilage sensitivity. This kind of pattern-based pain is frequently dismissed as coincidence, but it's one of the more reliable early indicators that joint tissue needs additional support.</p>
+  <h3>Why Early Action Matters</h3>
+  <p>Joint tissue, particularly cartilage and bone, has limited capacity for self-repair. Left unsupported, early wear can progress toward more significant joint degeneration over time. The good news: nutritional and medicinal support at this stage — before structural damage sets in — can meaningfully slow that progression and support the body's natural repair processes.</p>
+  <p>This is where our bone health and joint support formulation comes in. Developed to support cartilage integrity, bone density, and the body's natural repair mechanisms, it's designed for exactly this window — when the early signs are there, but there's still time to act.</p>
+  <p>Noticing one or more of these signs? <a href="products.html">Learn more about our joint and bone health range</a> or talk to our team about the right option for you.</p>
+</article>
+<article class="blog-post" id="article-3">
+  <span class="tag">Women's Wellness</span>
+  <h2>A Woman's Guide to Hormonal Wellness: From PMS to Menopause</h2>
+  <p>Hormones run quietly in the background of a woman's life — until they don't. One month everything feels manageable, the next you're dealing with mood swings, bloating, fatigue, or sleep that just won't come. Understanding what's actually happening in your body is the first step to feeling like yourself again, at every stage.</p>
+  <h3>The Hormonal Timeline Most Women Aren't Taught</h3>
+  <p>From the first period to menopause and beyond, a woman's body moves through distinct hormonal phases — each with its own shifts in estrogen, progesterone, and related systems:</p>
+  <p>The menstrual years, where estrogen and progesterone rise and fall in a monthly rhythm, driving everything from energy levels to skin changes to mood.</p>
+  <p>PMS and PMDD, where the drop in hormones before menstruation can trigger irritability, bloating, fatigue, and food cravings — often dismissed as "just something to push through."</p>
+  <p>Perimenopause, typically starting in the late 30s to 40s, where hormone levels become less predictable, leading to irregular cycles, sleep disruption, and mood changes.</p>
+  <p>Menopause, marked by a significant, sustained drop in estrogen, bringing hot flashes, bone density loss, and changes in metabolism.</p>
+  <p>Each phase is a natural biological transition — but "natural" doesn't mean it has to be uncomfortable or unmanaged.</p>
+  <h3>Why Hormonal Symptoms Are Often Overlooked</h3>
+  <p>Many women are told that fatigue, mood changes, or irregular cycles are just "part of being a woman" — something to tolerate rather than address. This framing often delays women from seeking support for symptoms that are, in fact, very manageable. Recognizing that hormonal fluctuation is a physiological process — not a personal failing — changes how you approach it.</p>
+  <h3>What Actually Helps</h3>
+  <p>Supporting hormonal balance isn't about a single fix; it's about giving your body consistent building blocks:</p>
+  <p>Key micronutrients like magnesium, B6, and vitamin D play a documented role in regulating mood and reducing PMS-related symptoms.</p>
+  <p>Phytoestrogens and adaptogenic herbs have long been studied for their role in easing menopausal symptoms and supporting hormonal balance.</p>
+  <p>Consistent nutritional support, rather than reactive symptom management, helps the body regulate more smoothly through each transition.</p>
+  <p>Sleep and stress management directly affect cortisol, which in turn interacts with reproductive hormones.</p>
+  <h3>Taking Back Control</h3>
+  <p>The biggest shift for most women isn't a dramatic lifestyle overhaul — it's simply having the right support at the right time, instead of waiting until symptoms become disruptive.</p>
+  <p>This is exactly why we developed our women's hormonal wellness formulation — a targeted blend designed to support your body through PMS, cycle irregularities, and the perimenopause-to-menopause transition, so you spend less time managing symptoms and more time feeling like yourself. Formulated around the nutrients your body actually needs at each stage, it's built for consistent, daily support rather than a one-time fix.</p>
+  <p>Ready to take back control of your hormonal health? <a href="products.html">Explore our women's wellness range</a> and find the support that fits your stage of life.</p>
+</article>
+<article class="blog-post" id="article-4">
+  <span class="tag">Children's Health</span>
+  <h2>Helping Kids Focus Better in School — Naturally</h2>
+  <p>Every parent has had the moment: your child stares at their homework, pencil in hand, mind clearly somewhere else. Before jumping to conclusions about attention or discipline, it's worth asking a more basic question — is their brain actually getting what it needs to focus?</p>
+  <h3>The Growing Brain Needs Fuel</h3>
+  <p>A child's brain is one of the most metabolically demanding organs in their body, using a disproportionate share of daily energy and nutrients relative to its size — especially during school-age years when memory formation, attention control, and processing speed are actively developing. When key nutrients are missing from a child's diet, it's often the brain's performance that shows the strain first, in the form of wandering attention, forgotten instructions, or slower recall during tests.</p>
+  <h3>Nutrients Linked to Focus and Memory</h3>
+  <p>Research into childhood nutrition and cognitive performance points to a handful of nutrients that consistently matter:</p>
+  <p>Omega-3 fatty acids (DHA), a major structural component of brain cell membranes, are associated with better attention and memory performance in school-age children.</p>
+  <p>Iron, essential for oxygen delivery to the brain, has been linked in multiple studies to concentration and learning ability — even mild deficiency can affect classroom performance.</p>
+  <p>Zinc and B-vitamins support neurotransmitter function, which underpins memory formation and mental alertness.</p>
+  <p>Choline, a building block for acetylcholine, plays a documented role in memory and learning processes.</p>
+  <p>The challenge for most parents isn't awareness — it's consistency. Getting a picky eater to reliably consume oily fish, leafy greens, and whole grains every single day is, realistically, a tall order.</p>
+  <h3>A Bigger Gap Than Most Parents Realize</h3>
+  <p>The numbers back this up. Multi-city studies of school-going children in India have found iron deficiency in roughly one in three to one in two children, alongside widespread gaps in calcium, vitamin D, and B12 — deficiencies directly linked to concentration and learning performance in the classroom. On top of this, today's children are simply spending more time in front of screens than any previous generation, a shift researchers have connected to shorter attention spans and more difficulty sustaining focus on schoolwork. Between diet gaps and screen-heavy routines, it's little wonder so many parents are seeing their kids struggle to concentrate — it's not a discipline problem, it's a nutrition and lifestyle one.</p>
+  <h3>Why "Naturally" Matters</h3>
+  <p>There's often a temptation to look for a quick fix when a child is struggling to concentrate. But sustainable focus isn't built overnight — it's built through consistent nutritional support that gives the brain what it needs, day after day, so attention and memory can develop the way they're meant to. That's a very different, and far more sustainable, approach than anything promising instant results.</p>
+  <h3>Making It Easy for Parents</h3>
+  <p>This is precisely the gap our cognitive support syrup is designed to close — a daily, great-tasting formulation combining DHA, iron, zinc, and B-vitamins, built specifically for growing children who need consistent nutritional support but won't sit still for a complicated routine. It's one simple step parents can add to the morning routine, giving kids' brains the daily building blocks for sharper focus and better memory retention over time.</p>
+  <p>Want to give your child's concentration a natural boost? <a href="products.html">Explore our cognitive support syrup Neuro Aide</a> — a simple daily step toward sharper focus at school.</p>
+  <p>As with any nutritional supplement for children, we recommend consulting your pediatrician to find the right fit for your child's individual needs.</p>
+</article>
+<article class="blog-post" id="article-5">
+  <span class="tag">Nutrition</span>
+  <h2>Iron Supplements: Why Your Fast-Paced Life Needs Them More Than You Think</h2>
+  <p>Between early meetings, packed schedules, and meals eaten on the go, it's easy to overlook one of the most common nutritional gaps in modern life: iron. And the cost of that gap shows up in ways many people don't immediately connect back to their diet — fatigue, brain fog, and a general sense of running on empty.</p>
+  <h3>Iron's Job in the Body</h3>
+  <p>Iron is central to producing hemoglobin, the protein in red blood cells that carries oxygen from your lungs to every tissue in your body. When iron levels drop, oxygen delivery becomes less efficient — and everything from your muscles to your brain has to work harder to do the same job. This is why low iron so often shows up as tiredness that sleep doesn't fix, difficulty concentrating, and a general dip in physical stamina.</p>
+  <h3>Why Modern Life Makes Iron Deficiency More Common</h3>
+  <p>A few features of contemporary lifestyles quietly work against healthy iron levels:</p>
+  <p>Skipped or rushed meals mean less consistent intake of iron-rich foods.</p>
+  <p>Highly processed diets tend to be lower in bioavailable iron than home-cooked, whole-food meals.</p>
+  <p>High caffeine intake — coffee and tea consumed with or right after meals — can inhibit iron absorption.</p>
+  <p>Intense work and exercise schedules increase the body's iron turnover and demand.</p>
+  <p>Menstruation, for women, represents a regular, significant iron loss that many diets don't fully offset.</p>
+  <p>The result is a population that's busier than ever, but often running on lower iron reserves than previous generations — frequently without realizing it, since early-stage deficiency symptoms are easy to mistake for "just being tired."</p>
+  <h3>The Cost of Ignoring It</h3>
+  <p>Left unaddressed, low iron can progress to iron-deficiency anemia, affecting concentration, immune function, and overall energy in ways that compound over time. In a schedule that already has little room for slowing down, this is one gap worth closing early rather than managing after it becomes disruptive.</p>
+  <h3>Closing the Gap</h3>
+  <p>Dietary changes help, but for many people juggling demanding schedules, consistent food-based iron intake simply isn't realistic every day. That's where a well-formulated iron supplement makes the difference — providing a reliable, absorbable dose of iron without requiring you to overhaul your entire diet.</p>
+  <p>Our iron supplement is formulated for exactly this: high bioavailability, gentle on digestion, and designed to fit into a demanding routine without becoming one more thing to manage. It's a small daily habit that gives your body what it needs to keep up with the pace you're already running at.</p>
+  <p>Feeling the fatigue but not sure why? <a href="products.html">Check out our iron supplement</a> and give your body the fuel it's been missing.</p>
+</article>
+<article class="blog-post" id="article-6">
+  <span class="tag">Liver Health</span>
+  <h2>"The Organ That Never Complains (Until It's Too Late)"</h2>
+  <p>Your liver processes almost everything that enters your body — food, medication, alcohol, even the air you breathe. It's one of the few organs that can regenerate itself. But that resilience often works against you: the liver can be under significant strain for years without a single obvious symptom, quietly absorbing damage while you feel completely fine.</p>
+  <h3>Why Liver Strain Goes Unnoticed</h3>
+  <p>Unlike a headache or a stomach ache, early liver stress rarely announces itself. The liver has no pain receptors of its own, so damage typically has to become fairly advanced — affecting the surrounding tissue or disrupting major functions — before it produces noticeable symptoms like fatigue, digestive issues, or skin changes. By the time most people investigate, the strain has often been building for a long time.</p>
+  <h3>Everyday Habits That Add Up</h3>
+  <p>Few people associate their daily routine with liver stress, but several common habits place a steady, cumulative load on it:</p>
+  <p>Regular alcohol consumption, even at levels that feel moderate, requires the liver to prioritize detoxification over its many other functions.</p>
+  <p>A diet high in processed food, sugar, and refined carbs contributes to fat accumulation in liver cells — now one of the most common liver concerns worldwide, even in people who don't drink.</p>
+  <p>Frequent use of over-the-counter medication and painkillers adds to the liver's metabolic workload, particularly when taken often or combined.</p>
+  <p>Chronic stress and poor sleep elevate cortisol and inflammation, both of which affect how efficiently the liver functions.</p>
+  <p>Sedentary routines, common in desk-based work, are linked to slower fat metabolism and increased liver fat storage.</p>
+  <p>None of these habits cause dramatic damage on their own. It's the accumulation, day after day, that quietly shifts the liver from coping to struggling.</p>
+  <h3>What Liver Recovery Actually Needs</h3>
+  <p>The liver's regenerative capacity is genuinely remarkable — but only when it's given the right support to do so. Several nutrients and compounds are well recognized for supporting liver function and recovery:</p>
+  <p>Milk thistle (silymarin) is one of the most studied botanicals for liver support, with a long history of use in protecting liver cells from oxidative stress.</p>
+  <p>Antioxidants like glutathione precursors and vitamin E help counter the oxidative damage generated during detoxification.</p>
+  <p>B-complex vitamins support the liver's core metabolic processes, including how it processes fats and carbohydrates.</p>
+  <p>Adequate protein and amino acids provide the building blocks the liver needs for cell repair and regeneration.</p>
+  <p>Hydration and reduced processed food intake ease the day-to-day burden on liver function, allowing it to focus on repair rather than damage control.</p>
+  <h3>Give Your Liver a Head Start</h3>
+  <p>Because early liver strain is silent, waiting for symptoms often means waiting too long. Supporting liver function proactively — rather than reactively — is one of the more overlooked forms of preventive health, especially for anyone juggling a demanding lifestyle, irregular eating habits, or occasional alcohol use.</p>
+  <p>This is exactly what our liver tonic is formulated for — a blend built around milk thistle, antioxidants, and essential B-vitamins designed to support the liver's natural detoxification and repair processes. It's not a fix for a single bad night; it's daily support that helps your liver keep up with everything modern life asks of it.</p>
+  <p>Give your liver the support it's been quietly asking for. <a href="products.html">Explore our liver tonic</a> and take a proactive step toward better liver health.</p>
+</article>
+<article class="blog-post" id="article-7">
+  <span class="tag">Skin Health</span>
+  <h2>Dull Skin Isn't Just "Tired" — It's Trying to Tell You Something</h2>
+  <p>You're sleeping enough. You're using the right products. And yet your skin still looks flat, tired, and a little grey around the edges. If that sounds familiar, the problem may not be your skincare routine at all — it might be what's happening beneath the surface.</p>
+  <h3>The Real Culprits Behind Dull Skin</h3>
+  <p>Skin dullness isn't random. It's usually the visible result of two very modern, very unavoidable stressors:</p>
+  <p>Pollution. Airborne pollutants — vehicle exhaust, industrial particulates, dust — settle on skin and generate free radicals, unstable molecules that damage skin cells and break down collagen. Over time, this oxidative load dulls skin tone, clogs pores, and accelerates the fine lines and unevenness we associate with aging.</p>
+  <p>Stress. Chronic stress elevates cortisol, which in turn increases inflammation and disrupts the skin's natural barrier and renewal cycle. Stressed skin loses its ability to retain moisture and repair itself efficiently — which is why skin often looks visibly worse during demanding, high-pressure periods of life.</p>
+  <p>Layer in irregular sleep, screen time, and rushed meals — all hallmarks of modern life — and it's no surprise that "my skin looks dull" has become one of the most common complaints, regardless of how good someone's skincare shelf looks.</p>
+  <h3>Why Topical Products Alone Fall Short</h3>
+  <p>Serums and creams work on the surface — they hydrate, exfoliate, and protect. But they can't fully counter oxidative stress and inflammation that originate inside the body, from pollution exposure, cortisol, and diet. Skin renews itself from the inside out, cell by cell, using the nutrients circulating in your bloodstream. If those nutrients are in short supply, no amount of topical product can fully compensate.</p>
+  <h3>Healing Skin From Within</h3>
+  <p>This is where internal antioxidant and micronutrient support becomes essential, not optional:</p>
+  <p>Lycopene, the powerful antioxidant that gives tomatoes their red colour, is one of the most studied carotenoids for neutralizing the free radicals generated by pollution and UV exposure — helping protect skin cells at a cellular level.</p>
+  <p>Multivitamins support the many biological processes involved in skin renewal, from collagen synthesis to cell turnover.</p>
+  <p>Multiminerals provide the micronutrient building blocks skin needs to repair itself efficiently, especially during periods of high stress or environmental exposure.</p>
+  <p>Together, these work as a daily internal defense system — not replacing your skincare routine, but reinforcing it from a level your creams simply can't reach.</p>
+  <h3>Meet Glowberi</h3>
+  <p>This is exactly the gap Glowberi Syrup is built to close. Formulated with lycopene, multivitamins, and multiminerals, Glowberi is designed to support your skin from within — helping counter the daily toll of pollution and stress at a cellular level, so your skin can do what it's naturally built to do: renew, repair, and glow.</p>
+  <p>Because real glow isn't something you apply. It's something you rebuild — one day, one dose, at a time.</p>
+  <p>Ready to fight dullness from the inside out? <a href="products.html">Explore Glowberi Syrup</a> and give your skin the internal support it's been missing.</p>
+  <p>For article 1 image will take sometime</p>
+  <p>Article 2 product image -</p>
+  <p>Article 3 product image -</p>
+  <p>Article 4 product image -</p>
+  <p>Article 5 product image -</p>
+  <p>Article 6 product image -</p>
+  <p>Article 7 product image</p>
+</article>
+    <div style="text-align:center;">
+      <a href="index.html" class="back-to-top"><i class="ti ti-arrow-left"></i> Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="R.M. Drugs"/>
+      <p>A 45-year-old pharmaceutical company based in Agra, India — supplying quality generic medicines across Africa and the Gulf.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Generic Medicines</a>
+      <a href="products.html">Nutraceuticals</a>
+      <a href="products.html">Syrups & Liquids</a>
+      <a href="products.html">Medical Instruments</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:exports@rmdrugs.com">exports@rmdrugs.com</a>
+      <a href="#">+91 XXXXX XXXXX</a>
+      <a href="#">7A/112 Manas Nagar,<br>Shah Ganj, Agra — 282010</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 R.M. Drugs, Agra, India. All rights reserved.</span>
+    <span>IEC Registered · WHO-GMP Certified · Pharmexcil RCMC Member</span>
+  </div>
+</footer>
+
+<script>
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+</script>
+</body>
+</html>
