@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>R.M. Drugs — Pharmaceutical Export from India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green:#14532D;--green-mid:#166534;--green-light:#DCFCE7;--green-soft:#F0FDF4;
+  --mint:#34D399;--gold:#B45309;--gold-light:#FEF3C7;
+  --text:#111827;--muted:#6B7280;--bg:#FFFFFF;--bg2:#F9FAFB;--bg3:#F3F4F6;
+  --border:#E5E7EB;--shadow:0 18px 50px rgba(20,83,45,0.08);--r:16px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.92);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.nav-logo img{height:48px;width:auto;object-fit:contain;}
+.nav-links{display:flex;gap:1.75rem;}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:600;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{background:var(--green);color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:700;transition:transform .2s,background .2s;}
+.nav-cta:hover{background:var(--green-mid);transform:translateY(-1px);}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;border:none;padding:13px 28px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 10px 24px rgba(20,83,45,0.18);}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px);}
+.btn-outline{background:#fff;color:var(--green);border:1.5px solid var(--border);padding:12px 24px;border-radius:999px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-outline:hover{border-color:var(--green);background:var(--green-soft);}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;}
+.hero-full{padding:0;}
+.hero-full-wrap{width:100%;}
+
+
+/* HERO SLIDER */
+.hero-slider{position:relative;overflow:hidden;height:640px;width:100%;}
+.hero-slider-full{border-radius:0;box-shadow:none;}
+.hero-slides{position:relative;width:100%;height:100%;}
+.hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease;}
+.hero-slide.active{opacity:1;visibility:visible;}
+.hero-slide img{width:100%;height:100%;object-fit:cover;}
+.hero-slide-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,40,24,0.80) 0%,rgba(10,40,24,0.55) 38%,rgba(10,40,24,0.20) 65%,rgba(10,40,24,0.05) 100%),linear-gradient(180deg,rgba(20,83,45,0.05) 40%,rgba(20,83,45,0.55) 100%);}
+.hero-slide-caption{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;color:#fff;padding:0 5%;max-width:1140px;margin:0 auto;text-align:left;}
+.hero-slide-caption h3{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.3rem,4.8vw,3.6rem);line-height:1.15;margin-bottom:1rem;max-width:40rem;text-shadow:0 6px 24px rgba(0,0,0,0.45);}
+.hero-slide-caption p{font-size:16px;line-height:1.7;opacity:.95;max-width:34rem;text-shadow:0 2px 10px rgba(0,0,0,0.35);}
+.hero-slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.85);border:none;display:flex;align-items:center;justify-content:center;color:var(--green);cursor:pointer;z-index:3;transition:background .2s;box-shadow:0 6px 16px rgba(0,0,0,0.15);}
+.hero-slider-arrow:hover{background:#fff;}
+.hero-slider-arrow.prev{left:24px;}
+.hero-slider-arrow.next{right:24px;}
+.hero-slider-dots{position:absolute;bottom:24px;right:5%;display:flex;gap:8px;z-index:3;}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+.hero-dot.active{background:#fff;transform:scale(1.2);}
+@media(max-width:960px){.hero-slider{height:480px;}}
+@media(max-width:640px){.hero-slider{height:400px;}.hero-slide-caption{padding:2rem 1.25rem;}.hero-slide-caption h3{font-size:1.4rem;}}
+
+/* TRUST */
+.trust{padding:1.25rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#fff;}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--text);}
+.trust-icon{width:38px;height:38px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:18px;flex-shrink:0;}
+
+/* STATS */
+.stats{padding:3.5rem 0;background:var(--green);color:#fff;position:relative;overflow:hidden;}
+.stats::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(52,211,153,0.18), transparent 40%);}
+.stats-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;}
+.stat-num{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4vw,3rem);line-height:1;}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.72);margin-top:6px;}
+
+/* SECTIONS */
+.section{padding:5rem 0;}
+.section-head{max-width:640px;margin-bottom:2.5rem;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--mint);border-radius:2px;}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3vw,2.6rem);line-height:1.15;margin-bottom:.85rem;font-weight:400;}
+.section-sub{color:var(--muted);font-size:1rem;line-height:1.8;}
+
+/* PRODUCTS */
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--green-light);color:var(--green);}
+.section-cta{margin-top:2rem;text-align:center;}
+
+/* BLOG */
+.blog{background:var(--bg2);}
+.blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+.blog-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;}
+.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.blog-card-icon{height:120px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--green-soft),var(--green-light));color:var(--green);font-size:34px;}
+.blog-card-body{padding:1.25rem;display:flex;flex-direction:column;flex:1;}
+.blog-card-body .tag{margin-bottom:.6rem;align-self:flex-start;}
+.blog-card-body h3{font-size:1rem;line-height:1.4;margin-bottom:.5rem;}
+.blog-card-body p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1rem;flex:1;}
+.blog-card-body a{font-size:13px;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:4px;}
+@media(max-width:960px){.blog-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.blog-grid{grid-template-columns:1fr;}}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative;}
+.process-grid::before{content:'';position:absolute;top:34px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--green-light),var(--mint),var(--green-light));z-index:0;}
+.process-step{background:#fff;border:1px solid var(--border);border-radius:20px;padding:1.25rem;position:relative;z-index:1;}
+.step-num{width:42px;height:42px;border-radius:14px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:1rem;box-shadow:0 10px 20px rgba(20,83,45,0.18);}
+.process-step h4{font-size:15px;margin-bottom:.45rem;}
+.process-step p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* WHY */
+.why{background:linear-gradient(180deg,#fff 0%,var(--green-soft) 100%);}
+.why-panel{background:#fff;border:1px solid var(--border);border-radius:24px;padding:1.75rem;box-shadow:var(--shadow);}
+.why-list{display:grid;gap:14px;margin-top:1rem;}
+.why-item{display:flex;gap:12px;}
+.why-item i{width:36px;height:36px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;}
+.why-item strong{display:block;font-size:14px;margin-bottom:2px;}
+.why-item p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* CTA */
+.cta{padding:0 0 5rem;}
+.cta-box{background:linear-gradient(135deg,var(--green) 0%,#0f5132 100%);border-radius:28px;padding:3rem;color:#fff;display:grid;grid-template-columns:1.2fr 0.8fr;gap:2rem;align-items:center;position:relative;overflow:hidden;}
+.cta-box::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(52,211,153,0.12);top:-80px;right:-40px;}
+.cta-box h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3vw,2.5rem);line-height:1.15;margin-bottom:.75rem;font-weight:400;position:relative;z-index:1;}
+.cta-box p{color:rgba(255,255,255,0.78);line-height:1.8;position:relative;z-index:1;}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.5rem;position:relative;z-index:1;}
+.cta-actions .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.35);}
+.cta-actions .btn-outline:hover{background:rgba(255,255,255,0.08);border-color:#fff;}
+.cta-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:1.25rem;position:relative;z-index:1;backdrop-filter:blur(8px);}
+.cta-card h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,0.55);margin-bottom:1rem;}
+.cta-card a{display:flex;align-items:center;gap:10px;color:#fff;font-size:14px;margin-bottom:.75rem;}
+.cta-card a i{opacity:.75;}
+
+/* FOOTER */
+.footer{background:var(--green);color:rgba(255,255,255,0.9);padding:3rem 1.5rem 1.5rem;}
+.footer-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.footer-brand img{height:48px;margin-bottom:1rem;background:#fff;padding:6px 12px;border-radius:10px;display:inline-block;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:0.9rem;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:0.5rem;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:1rem;max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,0.45);}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,0.25);z-index:1000;transition:transform .2s,box-shadow .2s;}
+.whatsapp-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 34px rgba(0,0,0,0.3);}
+.whatsapp-float svg{width:30px;height:30px;}
+@media(max-width:640px){.whatsapp-float{right:16px;bottom:16px;width:52px;height:52px;}.whatsapp-float svg{width:26px;height:26px;}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:960px){
+  .cta-box{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .process-grid::before{display:none;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .process-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="R.M. Drugs"/></a>
+  <div class="nav-links"><a href="index.html" class="active">Home</a><a href="about.html">About Us</a><a href="products.html">Products</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a></div>
+  <a class="nav-cta" href="contact.html">Enquire Now</a>
+</nav>
+
+<section class="hero hero-full">
+  <div class="hero-full-wrap reveal">
+      <div class="hero-slider hero-slider-full" id="heroSlider">
+        <div class="hero-slides">
+          <div class="hero-slide active">
+            <img src="images/1.jpg" alt="Happy family enjoying time together outdoors"/>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-caption">
+              <h3>Science That Cares. Innovation That Heals.</h3>
+              <p>Pioneering pharmaceutical and nutraceutical solutions for every stage of life.</p>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img src="images/2.jpg" alt="Woman finishing a marathon, hands raised"/>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-caption">
+              <h3>She Does It All.</h3>
+              <p>All we can do is help her feel her best. A complete nutraceutical solution crafted to address the unique health needs of modern women.</p>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img src="images/3.jpg" alt="Man on a peaceful morning walk"/>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-caption">
+              <h3>Health is a Choice that you make Daily.</h3>
+              <p>Supporting your wellness with clinically inspired, research-backed products.</p>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img src="images/4.jpg" alt="Busy working parents managing life on the go"/>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-caption">
+              <h3>As a marathon runner, Kavitha couldn't afford to stop and reapply. Now she never has to.</h3>
+              <p>For those who live life in motion — protection that keeps up with you.</p>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img src="images/5.jpg" alt="Scientists researching pharmaceutical formulations in a lab"/>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-caption">
+              <h3>At 52, Ramesh was told he'd have to give up his morning walks forever. Today, he hasn't missed one in two years.</h3>
+              <p>Because joints that are cared for, carry you further.</p>
+            </div>
+          </div>
+        </div>
+        <button class="hero-slider-arrow prev" aria-label="Previous slide" onclick="heroSliderMove(-1)"><i class="ti ti-chevron-left"></i></button>
+        <button class="hero-slider-arrow next" aria-label="Next slide" onclick="heroSliderMove(1)"><i class="ti ti-chevron-right"></i></button>
+        <div class="hero-slider-dots">
+          <button class="hero-dot active" onclick="heroSliderGo(0)"></button>
+          <button class="hero-dot" onclick="heroSliderGo(1)"></button>
+          <button class="hero-dot" onclick="heroSliderGo(2)"></button>
+          <button class="hero-dot" onclick="heroSliderGo(3)"></button>
+          <button class="hero-dot" onclick="heroSliderGo(4)"></button>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section blog">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">From the blog</span>
+      <h2 class="section-title">Health insights worth reading</h2>
+      <p class="section-sub">Practical, research-backed guidance on wellness, nutrition, and healthy living from the R.M. Drugs team.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-sun"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Skin Health</span>
+          <h3>Why Gut Health Affects Your Skin's Sun Resilience</h3>
+          <p>A growing body of research points to a second, less visible line of defense against UV damage: the gut.</p>
+          <a href="blog.html#article-1">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-bone"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Joint &amp; Bone Health</span>
+          <h3>5 Signs Your Joints Need More Support</h3>
+          <p>Joint wear builds quietly for years. Catching the early signals can make a meaningful difference over time.</p>
+          <a href="blog.html#article-2">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-woman"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Women's Wellness</span>
+          <h3>A Woman's Guide to Hormonal Wellness: From PMS to Menopause</h3>
+          <p>Understanding what's actually happening in your body is the first step to feeling like yourself again, at every stage.</p>
+          <a href="blog.html#article-3">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-brain"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Children's Health</span>
+          <h3>Helping Kids Focus Better in School — Naturally</h3>
+          <p>Before jumping to conclusions about attention or discipline, it's worth asking: is their brain getting what it needs?</p>
+          <a href="blog.html#article-4">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-droplet"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Nutrition</span>
+          <h3>Iron Supplements: Why Your Fast-Paced Life Needs Them More Than You Think</h3>
+          <p>The cost of low iron shows up in ways many people don't immediately connect back to their diet.</p>
+          <a href="blog.html#article-5">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-liver"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Liver Health</span>
+          <h3>The Organ That Never Complains (Until It's Too Late)</h3>
+          <p>The liver can be under significant strain for years without a single obvious symptom.</p>
+          <a href="blog.html#article-6">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="blog-card-body">
+          <span class="tag">Skin Health</span>
+          <h3>Dull Skin Isn't Just "Tired" — It's Trying to Tell You Something</h3>
+          <p>If your skin still looks flat and tired, the problem may not be your skincare routine at all.</p>
+          <a href="blog.html#article-7">Read more <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+    <div class="section-cta reveal">
+      <a href="blog.html" class="btn-primary">View All Articles <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div>
+        <span class="eyebrow" style="color:var(--mint);">Get started</span>
+        <h2>Ready to source quality medicines from India?</h2>
+        <p>Talk to our export team we'll understand your requirements and propose a supply arrangement that works.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary" style="background:#fff;color:var(--green);box-shadow:none;">Contact Our Export Team</a>
+          <a href="products.html" class="btn-outline">Browse Products</a>
+        </div>
+      </div>
+      <div class="cta-card">
+        <h4>Quick contact</h4>
+        <a href="mailto:malini@rmdrugs.com"><i class="ti ti-mail"></i> malini@rmdrugs.com</a>
+        <a href="#"><i class="ti ti-phone"></i> +91 6398510184</a>
+        <a href="#"><i class="ti ti-map-pin"></i> 7A/112 Manas Nagar, Shah Ganj, Agra — 282010</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="R.M. Drugs"/>
+      <p>A 45-year-old pharmaceutical company based in India, supplying quality generic medicines across the globe.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Generic Medicines</a>
+      <a href="products.html">Nutraceuticals</a>
+      <a href="products.html">Syrups & Liquids</a>
+      <a href="products.html">Medical Instruments</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:malini@rmdrugs.com">malini@rmdrugs.com</a>
+      <a href="#">+91 6398510184</a>
+      <a href="#">7A/112 Manas Nagar,<br>Shah Ganj, Agra — 282010</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 R.M. Drugs, Agra, India. All rights reserved.</span>
+    <span>IEC Registered · WHO-GMP Certified · Pharmexcil RCMC Member</span>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/916398510184?text=Hi%20R.M.%20Drugs%2C%20I%27d%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.66 4.53 1.8 6.39L4 29l7.8-1.75A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.63 3 16.004 3Zm0 21.9a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-4.63 1.04 1.07-4.51-.24-.37A9.87 9.87 0 0 1 6.1 15c0-5.46 4.45-9.9 9.9-9.9 5.46 0 9.9 4.44 9.9 9.9 0 5.46-4.44 9.9-9.9 9.9Zm5.44-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.06 2.89 1.21 3.09c.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+</a>
+
+<script>
+(function(){
+  var slides=document.querySelectorAll('#heroSlider .hero-slide');
+  var dots=document.querySelectorAll('#heroSlider .hero-dot');
+  var current=0, timer;
+  function show(i){
+    slides.forEach(function(s,idx){s.classList.toggle('active',idx===i);});
+    dots.forEach(function(d,idx){d.classList.toggle('active',idx===i);});
+    current=i;
+  }
+  window.heroSliderGo=function(i){show(i);restart();};
+  window.heroSliderMove=function(dir){
+    var next=(current+dir+slides.length)%slides.length;
+    show(next);restart();
+  };
+  function restart(){
+    clearInterval(timer);
+    timer=setInterval(function(){window.heroSliderMove(1);},6000);
+  }
+  if(slides.length){restart();}
+})();
+function animateCount(el){
+  const target=parseInt(el.dataset.target,10);
+  const suffix=el.dataset.suffix||'';
+  const dur=1800;const start=performance.now();
+  function ease(t){return 1-Math.pow(1-t,4);}
+  function tick(now){
+    const p=Math.min((now-start)/dur,1);
+    el.textContent=Math.floor(ease(p)*target)+suffix;
+    if(p<1)requestAnimationFrame(tick);else el.textContent=target+suffix;
+  }
+  requestAnimationFrame(tick);
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done=1;animateCount(e.target);}});
+},{threshold:0.5});
+document.querySelectorAll('[data-target]').forEach(el=>obs.observe(el));
+</script>
+<script>
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+</script>
+</body>
+</html>
