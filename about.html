@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Us | R.M. Drugs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green:#1A5C38;--green-mid:#2D7A50;--green-light:#E6F4EC;
+  --gold:#C8943A;--gold-light:#FDF5E8;
+  --text:#1a1a1a;--muted:#5f5e5a;--bg:#fff;--bg2:#f8f8f5;
+  --border:rgba(0,0,0,0.1);--r:10px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 2rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
+.nav-logo img{height:52px;width:auto;object-fit:contain;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:13.5px;color:var(--muted);font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);border-bottom-color:var(--green);}
+.nav-cta{background:var(--green);color:#fff;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:600;transition:background .2s;}
+.nav-cta:hover{background:var(--green-mid);}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;border:none;padding:12px 28px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;display:inline-block;transition:background .2s;}
+.btn-primary:hover{background:var(--green-mid);}
+.btn-outline{background:transparent;color:var(--green);border:2px solid var(--green);padding:11px 26px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;display:inline-block;transition:all .2s;}
+.btn-outline:hover{background:var(--green);color:#fff;}
+
+/* FOOTER */
+.footer{background:var(--green);color:rgba(255,255,255,0.9);padding:3rem 2rem 1.5rem;}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.footer-brand img{height:48px;margin-bottom:1rem;background:#fff;padding:6px 12px;border-radius:10px;display:inline-block;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:0.9rem;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:0.5rem;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:1rem;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.45);}
+
+/* SECTION LABELS */
+.eyebrow{display:inline-block;font-size:11.5px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;}
+.section-title{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;line-height:1.25;margin-bottom:0.85rem;}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.8;max-width:620px;margin-bottom:2rem;}
+.section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
+.section-full{padding:5rem 2rem;}
+
+/* CARDS */
+.card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s;}
+.card:hover{box-shadow:0 8px 32px rgba(26,92,56,0.1);transform:translateY(-2px);}
+.card-img{width:100%;height:200px;object-fit:cover;}
+.card-body{padding:1.25rem;}
+.card-body h3{font-size:15px;font-weight:600;margin-bottom:6px;}
+.card-body p{font-size:13px;color:var(--muted);line-height:1.65;}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--green-light);color:var(--green);margin-top:10px;}
+
+/* STATS */
+.stats-bar{background:var(--green);color:#fff;padding:3rem 2rem;}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;}
+.stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:#fff;}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .footer-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .section-title{font-size:1.6rem;}
+}
+</style>
+
+<style>
+.page-hero{position:relative;height:400px;overflow:hidden;display:flex;align-items:flex-end;}
+.page-hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80') center/cover no-repeat;}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,40,24,0.85) 0%,rgba(10,40,24,0.3) 70%);}
+.page-hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:2.5rem 2rem;width:100%;}
+.page-hero-content h1{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.page-hero-content p{font-size:1rem;color:rgba(255,255,255,0.75);max-width:500px;}
+.breadcrumb{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;}
+.breadcrumb a{color:rgba(255,255,255,0.6);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.story-img{border-radius:var(--r);overflow:hidden;height:460px;}
+.story-img img{width:100%;height:100%;object-fit:cover;}
+.story-text p{font-size:0.97rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;border-left:3px solid var(--green);padding-left:1rem;}
+.story-text p:not(:first-child){border-left:none;padding-left:0;}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem;}
+.mv-card{border:1px solid var(--border);border-radius:var(--r);padding:1.75rem;}
+.mv-card h3{font-family:'Fraunces',serif;font-size:1.2rem;margin-bottom:0.75rem;color:var(--green);}
+.mv-card p{font-size:13.5px;color:var(--muted);line-height:1.75;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.team-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);}
+.team-card img{width:100%;height:220px;object-fit:cover;}
+.team-body{padding:1.1rem;}
+.team-body h4{font-size:14.5px;font-weight:600;}
+.team-body span{font-size:12.5px;color:var(--muted);}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cert-card{background:var(--gold-light);border:1px solid rgba(200,148,58,0.25);border-radius:var(--r);padding:1.5rem;text-align:center;}
+.cert-card img{width:64px;height:64px;object-fit:contain;margin:0 auto 1rem;border-radius:8px;}
+.cert-card h4{font-size:14px;font-weight:600;color:#7a5420;margin-bottom:5px;}
+.cert-card p{font-size:12.5px;color:#8B6B30;}
+.aide-banner{background:var(--green);color:#fff;border-radius:var(--r);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+.aide-banner h3{font-family:'Fraunces',serif;font-size:1.4rem;margin-bottom:0.5rem;}
+.aide-banner p{font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;}
+
+/* WHAT WE OFFER */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.75rem;}
+.offer-card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s;}
+.offer-card:hover{box-shadow:0 8px 32px rgba(26,92,56,0.1);transform:translateY(-2px);}
+.offer-img{width:100%;height:160px;object-fit:cover;display:block;}
+.offer-body{padding:1.75rem;}
+.offer-icon{width:48px;height:48px;border-radius:12px;background:var(--green-light);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.1rem;margin-top:-2.75rem;position:relative;z-index:2;border:3px solid #fff;}
+.offer-card h3{font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:0.5rem;color:var(--text);font-weight:600;}
+.offer-card p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:0.9rem;}
+
+/* OUR REACH */
+.reach-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;margin-top:1.75rem;}
+.reach-card{border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--border);display:flex;flex-direction:column;}
+.reach-card-img{width:100%;height:190px;object-fit:cover;display:block;}
+.reach-card-body{background:var(--green);color:#fff;padding:2rem;flex:1;display:flex;flex-direction:column;}
+.reach-badge{width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;margin-bottom:1.1rem;}
+.reach-card h3{font-family:'Fraunces',serif;font-size:1.25rem;margin-bottom:0.4rem;font-weight:600;}
+.reach-card p{font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.7;}
+.reach-tag{display:inline-block;margin-top:1.1rem;font-size:11px;font-weight:700;letter-spacing:0.08em;background:rgba(255,255,255,0.18);padding:4px 12px;border-radius:20px;align-self:flex-start;}
+.reach-info{border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--border);display:flex;flex-direction:column;}
+.reach-info-img{width:100%;height:190px;object-fit:cover;display:block;}
+.reach-info-body{background:var(--gold-light);padding:2rem;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.reach-info i{font-size:24px;color:var(--gold);margin-bottom:1rem;display:block;}
+.reach-info h3{font-family:'Fraunces',serif;font-size:1.2rem;margin-bottom:0.5rem;color:#7a5420;font-weight:600;}
+.reach-info p{font-size:13.5px;color:#8B6B30;line-height:1.7;}
+
+/* HOW WE WORK */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative;margin-top:1.75rem;}
+.process-grid::before{content:'';position:absolute;top:34px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--green-light),var(--gold-light),var(--green-light));z-index:0;}
+.process-step{background:#fff;border:1px solid var(--border);border-radius:20px;padding:1.25rem;position:relative;z-index:1;}
+.step-num{width:42px;height:42px;border-radius:14px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:1rem;box-shadow:0 10px 20px rgba(26,92,56,0.18);}
+.process-step h4{font-size:15px;margin-bottom:.45rem;font-weight:600;}
+.process-step p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* WHY R.M. DRUGS */
+.why-panel{background:#fff;border:1px solid var(--border);border-radius:24px;padding:1.75rem;box-shadow:0 18px 50px rgba(20,83,45,0.08);}
+.why-list{display:grid;gap:14px;margin-top:1rem;}
+.why-item{display:flex;gap:12px;}
+.why-item i{width:36px;height:36px;border-radius:12px;background:var(--green-light);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;font-size:17px;}
+.why-item strong{display:block;font-size:14px;margin-bottom:2px;}
+.why-item p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+@media(max-width:768px){.story-grid,.mv-grid,.team-grid,.cert-grid,.offer-grid,.reach-grid,.process-grid{grid-template-columns:1fr;}.process-grid::before{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="R.M. Drugs"/></a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="about.html" class="active">About Us</a><a href="products.html">Products</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a></div>
+  <a class="nav-cta" href="contact.html">Enquire Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+    <h1>45 Years of Pharmaceutical Excellence</h1>
+    <p>Built on trust, quality, and a genuine commitment to healthcare in India and beyond.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<div style="padding:5rem 2rem;background:#fff;">
+<div style="max-width:1100px;margin:0 auto;">
+  <div class="story-grid">
+    <div class="story-img">
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Pharmaceutical facility"/>
+    </div>
+    <div class="story-text">
+      <span class="eyebrow">Our Story</span>
+      <h2 class="section-title">From India to Globe</h2>
+      <p>R.M. Drugs is an established Indian pharmaceutical company headquartered in India, engaged in the marketing, distribution, and export of generic medicines, nutraceuticals, and medical devices across India and international markets.</p>
+      <p style="border-left:none;padding-left:0;">Built over four and a half decades, our pan-India and global distribution network reaches pharmacies, hospitals, and clinics across the country. With a team of over 100 dedicated professionals across management, production, and sales, R.M. Drugs is a business built on trust, consistency, and a genuine commitment to the healthcare sector.</p>
+      <p style="border-left:none;padding-left:0;">All products are supplied through WHO-GMP certified manufacturing facilities across India, ensuring consistent quality, safety, and regulatory compliance in every market we serve.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><div class="stat-num" data-target="45" data-suffix="+">0+</div><div class="stat-label">Years in Pharma</div></div>
+    <div><div class="stat-num" data-target="100" data-suffix="+">0+</div><div class="stat-label">Team Members</div></div>
+    <div><div class="stat-num" data-target="5" data-suffix="">0</div><div class="stat-label">Export Countries</div></div>
+    <div><div class="stat-num" data-target="500" data-suffix="+">0+</div><div class="stat-label">Product SKUs</div></div>
+  </div>
+</div>
+
+<!-- MISSION & VISION -->
+<div style="padding:5rem 2rem;background:var(--bg2);">
+<div style="max-width:1100px;margin:0 auto;">
+  <span class="eyebrow">Purpose</span>
+  <h2 class="section-title">Mission &amp; Vision</h2>
+  <div class="mv-grid">
+    <div class="mv-card">
+      <h3>Our Mission</h3>
+      <p>To deliver high-quality and affordable pharmaceutical products to patients and healthcare systems across the globe bridging the gap between world-class pharmaceutical quality and competitive pricing, without compromising on safety, efficacy, or compliance.</p>
+    </div>
+    <div class="mv-card">
+      <h3>Our Vision</h3>
+      <p>To become a trusted global pharmaceutical distribution company recognised for the integrity of our products and the strength of our partnerships. Over the next five years, we aim to establish AIDE as a respected international brand across the globe.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- AIDE BRAND -->
+<div style="padding:5rem 2rem;background:#fff;">
+<div style="max-width:1100px;margin:0 auto;">
+  <span class="eyebrow">International Brand</span>
+  <h2 class="section-title">About AIDE</h2>
+  <div class="aide-banner">
+    <div>
+      <h3>Our international export brand</h3>
+      <p>Our generic medicines division operates under an exclusive licence granted by Florence Life Care Private Limited. Florence Life Care authorises R.M. Drugs to manufacture, distribute, market, and export pharmaceutical products under the brand <strong>AIDE</strong>, a registered trademark of Florence Life Care Pvt. Ltd., from India to global markets including the Middle East and Africa.</p>
+      <p style="margin-top:0.75rem;color:rgba(255,255,255,0.8);font-size:13.5px;">Distribution partners get access to a brand that delivers better shelf appeal and stronger margins over unbranded generics.</p>
+    </div>
+    <a href="contact.html" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5);white-space:nowrap;">Partner with Us</a>
+  </div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div style="padding:5rem 2rem;background:var(--bg2);">
+<div style="max-width:1100px;margin:0 auto;">
+  <span class="eyebrow">Credentials</span>
+  <h2 class="section-title">Our Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200&q=80" alt="WHO-GMP"/>
+      <h4>WHO-GMP Certified Manufacturing</h4>
+      <p>All products manufactured through WHO-GMP certified facilities ensuring quality, safety, and regulatory compliance.</p>
+    </div>
+    <div class="cert-card">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&q=80" alt="IEC Certificate"/>
+      <h4>IEC Registered Exporter</h4>
+      <p>Import Export Code registration enabling legal export of pharmaceutical goods from India to global markets.</p>
+    </div>
+    <div class="cert-card">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=80" alt="Pharmexcil"/>
+      <h4>Pharmexcil RCMC Member</h4>
+      <p>Registration Cum Membership Certificate from Pharmexcil, India's pharmaceutical export promotion council.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- WHAT WE OFFER -->
+<div style="padding:5rem 2rem;background:#fff;">
+<div style="max-width:1100px;margin:0 auto;">
+  <span class="eyebrow">What we offer</span>
+  <h2 class="section-title">Quality medicines across every category</h2>
+  <p class="section-sub">From oral solids to syrups and nutraceuticals, all sourced from WHO-GMP certified manufacturers and marketed internationally under the AIDE brand.</p>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=700&q=80" alt="Oral Tablets and Capsules"/>
+      <div class="offer-body">
+        <div class="offer-icon"><i class="ti ti-capsule"></i></div>
+        <h3>Oral Tablets &amp; Capsules</h3>
+        <p>Anti-infectives, analgesics, cardiovascular, antihistamines, antidiabetics, available in AIDE or white-label packaging.</p>
+        <span class="tag">WHO-GMP Certified</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80" alt="Syrups and Liquid Formulations"/>
+      <div class="offer-body">
+        <div class="offer-icon"><i class="ti ti-droplet"></i></div>
+        <h3>Syrups &amp; Liquid Formulations</h3>
+        <p>Paediatric and adult liquids across cough, antacid, antifungal, and nutritional supplement categories.</p>
+        <span class="tag">Multiple Therapeutic Areas</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="Nutraceuticals and Vitamins"/>
+      <div class="offer-body">
+        <div class="offer-icon"><i class="ti ti-apple"></i></div>
+        <h3>Nutraceuticals &amp; Vitamins</h3>
+        <p>Vitamins, minerals, and health supplements, suitable for pharmacy shelf and hospital distribution networks.</p>
+        <span class="tag">Preventive Health</span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="products.html" class="btn-primary">View Full Product Range</a>
+  </div>
+</div>
+</div>
+
+<!-- OUR REACH -->
+<div style="padding:5rem 2rem;background:var(--bg2);">
+<div style="max-width:1100px;margin:0 auto;">
+  <span class="eyebrow">Our reach</span>
+  <h2 class="section-title">Global Distribution.</h2>
+  <p class="section-sub">We are actively seeking supply partnerships with importers, distributors, and hospital procurement teams across the globe.</p>
+  <div class="reach-grid">
+    <div class="reach-card">
+      <img class="reach-card-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80" alt="India"/>
+      <div class="reach-card-body">
+        <div class="reach-badge">IN</div>
+        <h3>India: Home headquarters &amp; export operations</h3>
+        <p>Our operations are headquartered in Agra, Uttar Pradesh, coordinating manufacturing partnerships, quality assurance, and export logistics.</p>
+        <span class="reach-tag">HQ</span>
+      </div>
+    </div>
+    <div class="reach-info">
+      <img class="reach-info-img" src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=800&q=80" alt="Global export"/>
+      <div class="reach-info-body">
+        <i class="ti ti-world"></i>
+        <h3>Built for international buyers</h3>
+        <p>Regulatory-ready documentation, FOB/CIF pricing, and end-to-end export support.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- HOW WE WORK -->
+<div style="padding:5rem 2rem;background:#fff;">
+<div style="max-width:1100px;margin:0 auto;">
+  <span class="eyebrow">How we work</span>
+  <h2 class="section-title">From India's factories to your market</h2>
+  <p class="section-sub">A structured export process designed for distributors who need reliability, compliance, and responsive communication.</p>
+  <div class="process-grid">
+    <div class="process-step"><div class="step-num">1</div><h4>Understand your market</h4><p>We start by learning your country's regulatory requirements, import norms, and buyer preferences before proposing products.</p></div>
+    <div class="process-step"><div class="step-num">2</div><h4>Source from certified manufacturers</h4><p>All products come from WHO-GMP certified manufacturing facilities, ensuring consistent quality and export compliance.</p></div>
+    <div class="process-step"><div class="step-num">3</div><h4>Custom packaging &amp; labelling</h4><p>We prepare country-specific labelling for global TFDA requirements.</p></div>
+    <div class="process-step"><div class="step-num">4</div><h4>End-to-end export support</h4><p>From FOB/CIF pricing and documentation to dossier preparation and MoH submissions, we handle every step.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- WHY R.M. DRUGS -->
+<div style="padding:5rem 2rem;background:var(--bg2);">
+<div style="max-width:820px;margin:0 auto;">
+  <div class="why-panel">
+    <span class="eyebrow">Why R.M. Drugs</span>
+    <h2 class="section-title">The partner importers trust for Indian generics</h2>
+    <div class="why-list">
+      <div class="why-item"><i class="ti ti-file-certificate"></i><div><strong>Regulatory-first approach</strong><p>Country-specific dossiers, MoH submissions, and compliant labelling from day one.</p></div></div>
+      <div class="why-item"><i class="ti ti-truck-delivery"></i><div><strong>Reliable export execution</strong><p>FOB/CIF pricing, documentation, and logistics coordination handled by our export team.</p></div></div>
+      <div class="why-item"><i class="ti ti-tags"></i><div><strong>Competitive generic pricing</strong><p>Access India's manufacturing cost advantage without compromising on quality or compliance.</p></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="R.M. Drugs"/>
+      <p>A 45-year-old pharmaceutical company based in India, supplying quality generic medicines across the globe.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Generic Medicines</a>
+      <a href="products.html">Nutraceuticals</a>
+      <a href="products.html">Syrups & Liquids</a>
+      <a href="products.html">Medical Instruments</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:malini@rmdrugs.com">malini@rmdrugs.com</a>
+      <a href="#">+91 6398510184</a>
+      <a href="#">7A/112 Manas Nagar,<br>Shah Ganj, Agra, 282010</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 R.M. Drugs, Agra, India. All rights reserved.</span>
+    <span>IEC Registered · WHO-GMP Certified · Pharmexcil RCMC Member</span>
+  </div>
+</footer>
+
+<script>
+function animateCount(el){
+  const target=parseInt(el.dataset.target,10);
+  const suffix=el.dataset.suffix||'';
+  const dur=1800;const start=performance.now();
+  function ease(t){return 1-Math.pow(1-t,4);}
+  function tick(now){
+    const p=Math.min((now-start)/dur,1);
+    el.textContent=Math.floor(ease(p)*target)+suffix;
+    if(p<1)requestAnimationFrame(tick);else el.textContent=target+suffix;
+  }
+  requestAnimationFrame(tick);
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done=1;animateCount(e.target);}});
+},{threshold:0.5});
+document.querySelectorAll('[data-target]').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
