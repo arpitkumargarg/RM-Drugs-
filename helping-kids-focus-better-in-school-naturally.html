@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Helping Kids Focus Better in School, Naturally | R.M. Drugs Blog</title>
+<meta name="description" content="Before jumping to conclusions about attention or discipline, it's worth asking: is their brain getting the nutrients it needs to focus?"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green:#14532D;--green-mid:#166534;--green-light:#DCFCE7;--green-soft:#F0FDF4;
+  --mint:#34D399;--gold:#B45309;--gold-light:#FEF3C7;
+  --text:#111827;--muted:#6B7280;--bg:#FFFFFF;--bg2:#F9FAFB;--bg3:#F3F4F6;
+  --border:#E5E7EB;--shadow:0 18px 50px rgba(20,83,45,0.08);--r:16px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.92);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.nav-logo img{height:48px;width:auto;object-fit:contain;}
+.nav-links{display:flex;gap:1.75rem;}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:600;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{background:var(--green);color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:700;transition:transform .2s,background .2s;}
+.nav-cta:hover{background:var(--green-mid);transform:translateY(-1px);}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;border:none;padding:13px 28px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 10px 24px rgba(20,83,45,0.18);}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px);}
+
+/* POST HERO */
+.post-hero{padding:2.5rem 0 0;background:
+  radial-gradient(circle at 85% 15%, rgba(52,211,153,0.18), transparent 28%),
+  radial-gradient(circle at 10% 80%, rgba(20,83,45,0.08), transparent 32%),
+  linear-gradient(180deg,#fff 0%,#f7faf8 100%);}
+.post-hero-inner{max-width:760px;margin:0 auto;text-align:center;padding:0 1.5rem 2.5rem;}
+.breadcrumb{font-size:12.5px;color:var(--muted);margin-bottom:1rem;}
+.breadcrumb a{color:var(--green);font-weight:600;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--mint);border-radius:2px;}
+.post-hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,4.2vw,2.9rem);font-weight:400;line-height:1.2;margin-bottom:1rem;}
+.post-meta{font-size:13px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;}
+.post-meta i{font-size:15px;}
+
+/* FEATURED IMAGE */
+.post-featured{max-width:900px;margin:0 auto;padding:0 1.5rem;}
+.post-featured img{width:100%;height:420px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow);}
+
+/* ARTICLE BODY */
+.articles-wrap{background:#fff;padding:1px 0 2rem;}
+.blog-post{max-width:720px;margin:2.5rem auto 0;padding:0 1.5rem;}
+.blog-post h2{font-family:'Fraunces',serif;font-weight:500;font-size:1.4rem;margin:2rem 0 .75rem;color:var(--green);}
+.blog-post p{font-size:16px;color:#374151;line-height:1.9;margin-bottom:1.1rem;}
+.blog-post p a{color:var(--green);font-weight:700;text-decoration:underline;}
+.blog-post ul{margin:0 0 1.25rem 0;padding-left:0;list-style:none;}
+.blog-post ul li{position:relative;padding-left:1.6rem;font-size:16px;color:#374151;line-height:1.85;margin-bottom:.9rem;}
+.blog-post ul li::before{content:'';position:absolute;left:0;top:.55rem;width:8px;height:8px;border-radius:50%;background:var(--mint);}
+.blog-post ul li strong{color:var(--text);}
+
+/* CTA BOX */
+.post-cta{max-width:720px;margin:2rem auto 0;padding:1.75rem 2rem;background:var(--green-soft);border:1px solid var(--green-light);border-radius:20px;}
+.post-cta p{font-size:15px;color:#374151;margin-bottom:1rem;}
+.post-cta p:last-child{margin-bottom:0;}
+
+/* BACK LINK */
+.back-to-blog{max-width:720px;margin:2.5rem auto 0;padding:0 1.5rem;}
+.back-to-blog a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--green);}
+
+/* FOOTER */
+.footer{background:var(--green);color:rgba(255,255,255,0.9);padding:3rem 1.5rem 1.5rem;margin-top:3.5rem;}
+.footer-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.footer-brand img{height:48px;margin-bottom:1rem;background:#fff;padding:6px 12px;border-radius:10px;display:inline-block;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:0.9rem;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:0.5rem;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:1rem;max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,0.45);}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,0.25);z-index:1000;transition:transform .2s,box-shadow .2s;}
+.whatsapp-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 34px rgba(0,0,0,0.3);}
+.whatsapp-float svg{width:30px;height:30px;}
+
+@media(max-width:960px){
+  .footer-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .post-featured img{height:260px;border-radius:14px;}
+  .whatsapp-float{right:16px;bottom:16px;width:52px;height:52px;}
+  .whatsapp-float svg{width:26px;height:26px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="R.M. Drugs"/></a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="products.html">Products</a><a href="blog.html" class="active">Blog</a><a href="contact.html">Contact Us</a></div>
+  <a class="nav-cta" href="contact.html">Enquire Now</a>
+</nav>
+
+<section class="post-hero">
+  <div class="post-hero-inner">
+    <div class="breadcrumb"><a href="blog.html">Blog</a> / Children's Health</div>
+    <span class="eyebrow">Children's Health</span>
+    <h1>Helping Kids Focus Better in School, Naturally</h1>
+    <div class="post-meta"><i class="ti ti-user-circle"></i> R.M. Drugs Team</div>
+  </div>
+</section>
+
+<div class="post-featured">
+  <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=80" alt="Helping kids focus better in school naturally"/>
+</div>
+
+<section class="articles-wrap">
+  <div class="blog-post">
+    <p>Every parent has had the moment: your child stares at their homework, pencil in hand, mind clearly somewhere else. Before jumping to conclusions about attention or discipline, it's worth asking a more basic question, is their brain actually getting what it needs to focus?</p>
+
+    <h2>The Growing Brain Needs Fuel</h2>
+    <p>A child's brain is one of the most metabolically demanding organs in their body, using a disproportionate share of daily energy and nutrients relative to its size, especially during school-age years when memory formation, attention control, and processing speed are actively developing. When key nutrients are missing from a child's diet, it's often the brain's performance that shows the strain first, in the form of wandering attention, forgotten instructions, or slower recall during tests.</p>
+
+    <h2>Nutrients Linked to Focus and Memory</h2>
+    <p>Research into childhood nutrition and cognitive performance points to a handful of nutrients that consistently matter:</p>
+    <ul>
+      <li><strong>Omega-3 fatty acids (DHA)</strong>, a major structural component of brain cell membranes, are associated with better attention and memory performance in school-age children.</li>
+      <li><strong>Iron</strong>, essential for oxygen delivery to the brain, has been linked in multiple studies to concentration and learning ability, even mild deficiency can affect classroom performance.</li>
+      <li><strong>Zinc and B-vitamins</strong> support neurotransmitter function, which underpins memory formation and mental alertness.</li>
+      <li><strong>Choline</strong>, a building block for acetylcholine, plays a documented role in memory and learning processes.</li>
+    </ul>
+    <p>The challenge for most parents isn't awareness, it's consistency. Getting a picky eater to reliably consume oily fish, leafy greens, and whole grains every single day is, realistically, a tall order.</p>
+
+    <h2>A Bigger Gap Than Most Parents Realize</h2>
+    <p>The numbers back this up. Multi-city studies of school-going children in India have found iron deficiency in roughly one in three to one in two children, alongside widespread gaps in calcium, vitamin D, and B12, deficiencies directly linked to concentration and learning performance in the classroom. On top of this, today's children are simply spending more time in front of screens than any previous generation, a shift researchers have connected to shorter attention spans and more difficulty sustaining focus on schoolwork. Between diet gaps and screen-heavy routines, it's little wonder so many parents are seeing their kids struggle to concentrate, it's not a discipline problem, it's a nutrition and lifestyle one.</p>
+
+    <h2>Why "Naturally" Matters</h2>
+    <p>There's often a temptation to look for a quick fix when a child is struggling to concentrate. But sustainable focus isn't built overnight, it's built through consistent nutritional support that gives the brain what it needs, day after day, so attention and memory can develop the way they're meant to. That's a very different, and far more sustainable, approach than anything promising instant results.</p>
+
+    <h2>Making It Easy for Parents</h2>
+    <p>This is precisely the gap our cognitive support syrup is designed to close, a daily, great-tasting formulation combining DHA, iron, zinc, and B-vitamins, built specifically for growing children who need consistent nutritional support but won't sit still for a complicated routine. It's one simple step parents can add to the morning routine, giving kids' brains the daily building blocks for sharper focus and better memory retention over time.</p>
+    <p>As with any nutritional supplement for children, we recommend consulting your pediatrician to find the right fit for your child's individual needs.</p>
+
+
+    <div class="post-cta">
+      <p>Want to give your child's concentration a natural boost? <a href="products.html">Explore our cognitive support syrup Neuro Aide</a>, a simple daily step toward sharper focus at school.</p>
+    </div>
+
+    <div class="back-to-blog" style="padding:0;margin-top:2rem;">
+      <a href="blog.html"><i class="ti ti-arrow-left"></i> Back to all articles</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="R.M. Drugs"/>
+      <p>A 45-year-old pharmaceutical company based in India, supplying quality generic medicines across the globe.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Generic Medicines</a>
+      <a href="products.html">Nutraceuticals</a>
+      <a href="products.html">Syrups &amp; Liquids</a>
+      <a href="products.html">Medical Instruments</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:malini@rmdrugs.com">malini@rmdrugs.com</a>
+      <a href="#">+91 6398510184</a>
+      <a href="#">7A/112 Manas Nagar,<br>Shah Ganj, Agra, 282010</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 R.M. Drugs, Agra, India. All rights reserved.</span>
+    <span>IEC Registered · WHO-GMP Certified · Pharmexcil RCMC Member</span>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/916398510184?text=Hi%20R.M.%20Drugs%2C%20I%27d%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.66 4.53 1.8 6.39L4 29l7.8-1.75A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.63 3 16.004 3Zm0 21.9a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-4.63 1.04 1.07-4.51-.24-.37A9.87 9.87 0 0 1 6.1 15c0-5.46 4.45-9.9 9.9-9.9 5.46 0 9.9 4.44 9.9 9.9 0 5.46-4.44 9.9-9.9 9.9Zm5.44-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.06 2.89 1.21 3.09c.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+</a>
+
+</body>
+</html>
